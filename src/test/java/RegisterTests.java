@@ -1,22 +1,20 @@
+import exeptions.BrowserNotSupport;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import pages.LoginPage;
 import tools.RandomStrings;
+import webDriverManager.Browser;
+import webDriverManager.WebDriverFactory;
 
 public class RegisterTests {
 
     private WebDriver driver;
 
-    @BeforeAll
-    public static void setUpDriver(){
-        WebDriverManager.firefoxdriver().setup();
-    }
-
     @BeforeEach
-    public void launchDriver(){
-        driver = new FirefoxDriver();
+    public void launchDriver() throws BrowserNotSupport {
+        driver = WebDriverFactory.getDriver(Browser.FIREFOX);
         //TODO: Параметризировать
         driver.get("https://wishlist.otus.kartushin.su/");
     }
