@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import tools.JScripts;
 
 import java.time.Duration;
 
@@ -28,11 +29,19 @@ public class BaseComponent {
 
     protected void type(WebElement el, String text) {
         WebElement v = visible(el);
+        var js = new JScripts(driver);
+        js.scrollTo(v);
+        js.highlight(v);
         v.clear();
         v.sendKeys(text);
+        js.unhighlight(v);
     }
 
     protected void click(WebElement el) {
+        var js = new JScripts(driver);
+        js.scrollTo(el);
+        js.highlight(el);
         clickable(el).click();
+        js.unhighlight(el);
     }
 }
