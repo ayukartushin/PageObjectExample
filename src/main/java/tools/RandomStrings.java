@@ -7,7 +7,11 @@ public class RandomStrings {
     private static final String LETTERS_AND_DIGITS = LETTERS + "0123456789";
     private static final Random random = new Random();
 
-    // Генерирует случайную строку из букв (и цифр) заданной длины
+    /**
+     * Генерирует случайную строку из букв (и цифр) заданной длины
+     * @param length количество символов в строке
+     * @return случайная строка
+     */
     public static String getString(int length) {
         if (length <= 0) return "";
         StringBuilder sb = new StringBuilder(length);
@@ -17,7 +21,11 @@ public class RandomStrings {
         return sb.toString();
     }
 
-    // Генерирует случайный email с указанной длиной "имени"
+    /**
+     * Генерирует случайный email с указанной длиной "имени"
+     * @param length количество символов в строке
+     * @return случайный email
+     */
     public static String getEmail(int length) {
         if (length <= 0) length = 5;
         String name = getString(length).toLowerCase();

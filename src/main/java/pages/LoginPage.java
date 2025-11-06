@@ -36,21 +36,40 @@ public class LoginPage extends UnLoginZoneBasePage {
         }
     }
 
+
+    /**
+     * Ввод логина в поле
+     * @param login логин
+     * @return текущая страница
+     */
     public LoginPage typeLogin(String login){
         type(loginInput, login);
         return this;
     }
 
+    /**
+     * Ввод пароля в поле
+     * @param password пароль
+     * @return текущая страница
+     */
     public LoginPage typePassword(String password){
         type(passwordInput, password);
         return this;
     }
 
+    /**
+     * Нажатие на кнопку Войти
+     * @return автопереход в ЛК
+     */
     public WishlistPage loginButtonClick(){
         click(loginButton);
         return new WishlistPage(driver);
     }
 
+    /**
+     * Получить текст из заголовка
+     * @return текст из заголовка
+     */
     public String getHeaderText(){
         return header.getText();
     }

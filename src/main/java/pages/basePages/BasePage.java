@@ -23,14 +23,29 @@ public abstract class BasePage {
         menu = new MenuComponent(driver);
     }
 
+    /**
+     * Проверка элемента на видимость
+     * @param el элемент
+     * @return элемент
+     */
     protected WebElement visible(WebElement el) {
         return wait.until(ExpectedConditions.visibilityOf(el));
     }
 
+    /**
+     * Проверка элемента на кликабельность
+     * @param el элемент
+     * @return элемент
+     */
     protected WebElement clickable(WebElement el) {
         return wait.until(ExpectedConditions.elementToBeClickable(el));
     }
 
+    /**
+     * Ввести текст в поле элемента
+     * @param el элемент
+     * @param text текст
+     */
     protected void type(WebElement el, String text) {
         WebElement v = visible(el);
         var js = new JScripts(driver);
@@ -41,6 +56,10 @@ public abstract class BasePage {
         js.unhighlight(v);
     }
 
+    /**
+     * Кликнуть по элементу
+     * @param el элемент
+     */
     protected void click(WebElement el) {
         var js = new JScripts(driver);
         js.scrollTo(el);
